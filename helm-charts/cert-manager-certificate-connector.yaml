@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: edc-roms-cert
+  namespace: edc
+spec:
+  secretName: edc-roms-cert
+  issuerRef:
+    name: letsencrypt-prod-edc
+    kind: Issuer
+    group: cert-manager.io
+  commonName: edc.roms.inno-materna.de
+  dnsNames:
+    - edc.roms.inno-materna.de

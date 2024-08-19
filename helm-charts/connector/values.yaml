@@ -88,16 +88,17 @@ service:
         scope: openid
     company:
       vatId: DE811258273
-      name: Technische_Universitaet_Dortmund
+      name: Materna
       location: 51.4842558_7.4148775
       countrySubdivisionCode: DE-NW
     contract:
       gaiaxResourcePath: /resources/gaia-x/
     callback:
-      dsp: http://provider.gaiax.cluster.tsachweh.de/protocol
-      tokenValidation: http://provider.gaiax.cluster.tsachweh.de/control/token
+      dsp: http://edc.roms.inno-materna.de/protocol
+      tokenValidation: http://edc.roms.inno-materna.de/control/token
       httpReceiverEndpoint: http://localhost:4000/receiver/urn:connector:provider/callback
-      public: http://provider.gaiax.cluster.tsachweh.de/public
+# It was http://provider.gaiax.cluster.tsachweh.de/public
+      public: http://edc.roms.inno-materna.de/public
     web:
       cors:
         enabled: false
@@ -204,19 +205,17 @@ service:
       S3pkVDZ1Rk5kK2UvajJjZFVqbnFjU216NDlQUnRkRHN3Z3lZaG9EVCtXNHlWR05RNFZ1S2c2YTMK
       WjNwQytLVGRvSFNLZUEyRnlBR25TVXBECi0tLS0tRU5EIFBSSVZBVEUgS0VZLS0tLS0K
 
-
-
 ingress:
   enabled: true
   className: ""
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
-    acme.cert-manager.io/http01-edit-in-place: "true"
-  host: connector.gaiax.cluster.tsachweh.de
+#  annotations:
+#    cert-manager.io/cluster-issuer: letsencrypt-prod-edc
+#    acme.cert-manager.io/http01-edit-in-place: "true"
+  host: edc.roms.inno-materna.de
   tls:
-    - secretName: connector.gaiax.cluster.tsachweh.de
+    - secretName: edc-roms-cert
       hosts:
-        - connector.gaiax.cluster.tsachweh.de
+        - edc.roms.inno-materna.de
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
