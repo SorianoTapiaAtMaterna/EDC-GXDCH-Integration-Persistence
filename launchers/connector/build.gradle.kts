@@ -52,6 +52,7 @@ dependencies {
     implementation(libs.edc.sql.pool.apache.commons)
     implementation(libs.edc.util.lib)
     implementation(libs.postgresql.jdbc.driver)
+    implementation(libs.edc.transaction.local)
     // To come with v0.8.2: implementation(libs.edc.sql.bootstrapper)
 
 }
